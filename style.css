@@ -1,24 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oi&family=Smokum&display=swap');
 * {
-    background-color:coral;
-    font-family:"Inter";
-    text-align: center;
-}
-nav{
-    text-align: left;
-}
-
-p{
+    background-color: rgb(255, 237, 99);
+    font-family: "Inter";
     text-align: center;
 }
 
-a:hover {
-    color:blueviolet;
+/* Titulky – sjednocení About me / My works */
+h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-family: "Smokum", cursive; /* nový font */
+    font-size: 60px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+/* Text pod About me */
+.about_me {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Navigace – bez odrážek, text na střed */
+nav {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav li {
+    margin: 5px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+nav a:hover {
+    color: rgb(42, 34, 255);
     text-transform: capitalize;
 }
 
-.about_me{
-    font-size: 24px;
+p {
+    text-align: center;
+}
+
+/* Rozklikávací sekce My works */
+details {
+    margin: 30px 0;
+}
+
+summary {
+    font-size: 28px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+summary:hover {
+    color: rgb(184, 6, 113);
+}
+/* MINIATURY – mřížka 2 řádky, plná šířka */
+.thumbnail-grid {
+    width: 100vw;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: column;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.thumbnail-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/* KONTEJNER – fixní výška, žádné mezery */
+.thumbnail-grid {
+    width: 100vw;
+    overflow: hidden;        /* skryje části mimo okno */
+    background-color: coral; /* aby nenarušil celý layout */
+    padding: 0;
+    margin: 0;
+}
+
+/* OBSAH – nekonečná horizontální animace */
+.thumbnail-track {
+    display: flex;
+    animation: scroll 25s linear infinite;
+}
+
+/* OBRÁZKY – pevná výška, žádné mezery, žádné rohy */
+.thumbnail-track img {
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* ANIMACE – posun zleva doprava v nekonečné smyčce */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+/* CELÝ BLOK S MINIATURAMI */
+.thumbnail-grid {
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ŘÁDEK (horní i dolní) */
+.thumbnail-row {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite; /* pomalejší */
+}
+
+/* OBRÁZKY – pevná výška, bez mezer, bez zaoblení */
+.thumbnail-row img {
+    height: 300px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+/* ANIMACE – nekonečný posun doleva */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
